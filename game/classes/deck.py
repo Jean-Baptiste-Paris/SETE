@@ -7,9 +7,6 @@ class Deck():
     """
     def __init__(self) -> None:
         self.__cards = []
-        for suit in ["Hearts", "Diamonds", "Clubs", "Spades"]:
-            for rank in range(1, 14):
-                self.__cards.append(Card(suit, rank))
 
     def __str__(self) -> str:
         return f"{len(self.__cards)} cards in the deck"
@@ -33,3 +30,15 @@ class Deck():
         Draw a card from the deck.
         """
         return self.__cards.pop(0)
+    
+    def resetAndShuffle(self) -> None:
+        """
+        Reset the deck.
+        """
+        self.__cards = []
+        for suit in ["Hearts", "Diamonds", "Clubs", "Spades"]:
+            for rank in range(1, 14):
+                self.__cards.append(Card(suit, rank))
+        for _ in range(2):
+            self.__cards.append(Card("Joker", 0))
+        self.shuffle()

@@ -1,4 +1,5 @@
 from .deck import Deck
+from .game import Game
 
 class Player():
     """
@@ -30,4 +31,10 @@ class Player():
         for _ in range(quantity):
             card = deck.draw()
             self.__hand.append(card)
+
+    def score(self, game: Game) -> int:
+        """
+        Count the number of rounds won.
+        """
+        return game.round_winners.count(self)
         

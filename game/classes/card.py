@@ -3,10 +3,10 @@ class Card():
     A playing card.
     """
     def __init__(self, suit: str, rank: int) -> None:
-        if not suit in ["Hearts", "Diamonds", "Clubs", "Spades"]:
+        if not suit in ["Hearts", "Diamonds", "Clubs", "Spades", "Joker"]:
             raise ValueError("Invalid suit")
         
-        if not 1 <= rank <= 13:
+        if not 0 <= rank <= 13:
             raise ValueError("Invalid rank")
         
         self.__suit = suit
